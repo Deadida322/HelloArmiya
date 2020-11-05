@@ -1,0 +1,940 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: 1s ease-in-out;
+}
+html {  
+    overflow: hidden;
+}
+a:hover{
+    text-decoration: none;
+}
+@font-face{
+    font-family: RobotoBold; 
+    src: url(fonts/Roboto-Bold.ttf);
+}
+@font-face{
+    font-family: RobotoLight; 
+    src: url(fonts/Roboto-Thin.ttf);
+}
+@font-face{
+    font-family: RobotoRegular; 
+    src: url(fonts/Roboto-Regular.ttf);
+}
+body{
+    font-family: RobotoLight;
+    color: #ddedff;
+    background-color: #262626;
+    width: 100vw;
+    height: 100vh;
+}
+nav{
+    cursor: pointer;
+    z-index: 999998;
+    position: fixed;
+    right:0;
+    background-color: rgba(0, 183, 255, 0.377);
+    border-left: 2px solid #363636;
+    width:30px;
+    height: 100vh;
+    opacity: 20%;
+    transition: all 1s;
+}
+nav:hover{
+    opacity: 90%;
+}
+
+
+#stat{
+    margin-left: -48px;
+    margin-top: 12px;
+    width: 50px;
+    opacity: 0%;
+    transition: all 0.3s ease-in;
+}
+
+.arr{
+    width: 20px;
+    height: 15px;
+    margin: 5px;
+    transition: all 0.5s;
+}
+.arr:hover{
+    width: 30px;
+    margin: 5px 0 5px 0;
+}
+.up{
+    animation: arrnavup 1s  ease-in-out infinite alternate forwards ;
+}
+.down{
+    animation: arrnavdown 1s  ease-in-out infinite alternate forwards ;
+}
+.up :hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+@keyframes arrnavup{
+    0%{
+        transform: translateY(2px);
+    }
+    100%{
+        transform: translateY(-7px);
+    }
+}
+@keyframes arrnavdown{
+    0%{
+        transform: translateY(-2px);
+    }
+    100%{
+        transform: translateY(7px);
+    }
+}
+.navstat{
+    width: 20px;
+    height: 50px;
+    border-radius: 3px;
+    border: 2px solid rgba(0, 183, 255, 0.377);
+    margin: 5px;
+    background-color: #262626;
+}
+.navcontainer:hover #stat{
+    opacity: 100%;
+    transition: all 0.3s ease-in;
+}
+.navcontainer{
+    z-index: 999999;
+    margin-top: -3vh;
+}
+.loading{
+    transform: scale(1.2);
+    top: 10%;
+    background-color: #262626;
+    z-index: 9999999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    animation: fade 1s ease-in 1 forwards;
+    animation-delay: 3s;
+}
+.rotatemsg{
+    top: 0%;
+    background-color: #262626;
+    z-index: 3000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    animation-delay: 3s;
+    display: none;
+}
+.rotatemsg img{
+    margin-left: 25%;
+    width: 50%;
+    margin-top: 3%;
+    animation: rotatemsg 1s ease-in-out infinite forwards;
+
+}
+.rotatetxt{
+    margin-top: 10%;
+    text-align: center;
+    font-size: 30px;
+}
+@keyframes rotatemsg{
+    0%{
+        transform: rotate(0deg);
+    }
+    80%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.l1{
+    position: absolute;
+    z-index: 4;
+    width: 4%;
+    top: 31.5%;
+    left: 48.2%;
+    z-index: 3;
+    animation: rotate5 0.5s linear 10 forwards;
+}
+.l2{
+    position: absolute;
+    width: 6%;
+    top: 27.5%;
+    left: 47.1%;
+    z-index: 3;
+    animation: rotate4 5s linear 2 forwards;
+}
+.l3{
+    position: absolute;
+    width: 20%;
+    top: 16.5%;
+    left: 40.1%;
+    z-index: 2;
+    animation: rotate3 5s linear 2 forwards;
+}
+.l4{
+    position: absolute;
+    width: 22%;
+    top: 13%;
+    left: 39%;
+    z-index: 1;
+    animation: rotate2 2s ease-in-out 3 alternate;
+}
+.l5{
+    position: absolute;
+    width: 25%;
+    top: 10%;
+    left: 37.5%;
+    z-index: 0;
+    animation: rotate1 1s ease-in-out 6 alternate;
+}
+@keyframes rotate1{
+    0%{
+        transform: scale(1.0);
+    }
+    100%{
+        transform: scale(1.03);
+    }
+}
+@keyframes rotate2{
+    0%{
+        transform: scale(1.0) rotate(0deg);
+    }
+    100%{
+        transform: scale(1.01) rotate(360deg);
+    }
+}
+@keyframes rotate3{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(-360deg);
+    }
+    100%{
+        transform: rotate(-720deg);
+    }
+}
+@keyframes rotate4{
+    0%{
+        transform: scale(1.0) rotate(0deg);
+    }
+    100%{
+        transform: scale(1.07) rotate(-160deg);
+    }
+}
+@keyframes rotate5{
+    0%{
+        transform: scale(1.0) rotate(0deg);
+    }
+    100%{
+        transform: scale(1.0) rotate(360deg);
+    }
+}
+@keyframes fade{
+    0%{ 
+        top: 10%;
+        transform: scale(1.2);
+        opacity: 100%;
+    }
+    99%{
+        transform: scale(1);
+    }
+    100%{
+        top: 0%;
+        transform: scale(0.1);
+        display: none;
+        opacity: 0%;
+        z-index: 0;
+    }
+}
+@keyframes fade2{
+    0%{ 
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+.brush1{
+    background-image: url(../assets/img/brush1.png);
+    background-size:cover;
+    background-position:center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 3;
+    transform: scale(2);
+    filter: blur(1px);
+    transition: 1.2s ease-in-out;
+}
+.brush2{
+    background-image: url(../assets/img/brush2.png);
+    background-size:cover;
+    background-position:center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 4;
+    opacity: 0%;
+    transform: scale(2);
+    filter: blur(7px);
+    transition: 1.2s ease-in-out;
+}
+.brush3{
+    background-image: url(../assets/img/brush3.png);
+    background-size:cover;
+    background-position:center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 5;
+    opacity: 0%;
+    transform: scale(2);
+    filter: blur(7px);
+    transition: 1.2s ease-in-out;
+}
+.brush4{
+    background-image: url(../assets/img/brush4.png);
+    background-size:cover;
+    background-position:center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 5;
+    opacity: 0%;
+    transform: scale(1.5);
+    filter: blur(7px);
+    transition: 1.2s ease-in-out;
+}
+.arrows{
+    position: fixed;
+    user-select: none;
+    cursor: pointer;
+    z-index: 2999;
+}
+
+.arrow{
+    position: fixed;
+    left: 47%;
+    bottom: 2%;
+    width: 7%;
+    animation: arrow1 1s ease-in-out infinite alternate;
+    user-select: none;
+    transition: 5s ease-in-out;
+    opacity: 100%;
+    user-select: none;
+    cursor: pointer;
+    z-index: 300;
+}
+.arrow2{
+    position: fixed;
+    left: 47%;
+    bottom: 7%;
+    width: 7%;
+    animation: arrow2 1s ease-in-out infinite alternate;
+    user-select: none;
+    cursor: pointer;
+    z-index: 300;
+    
+}
+.hflex{
+    position: absolute;
+    top: 15%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 50vh;
+    transform: scale(1);
+    filter: blur(0px);
+    transition: all 1.2s ease-in-out;
+}
+.hhflex{
+    height: 100vh;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+h1{
+    z-index: 0;
+    text-transform: uppercase;
+    font-family: RobotoBold;
+    transition: 1.2s ease-in-out;
+    font-size: 21vw;
+}
+h2{ 
+    z-index: 0;
+    text-align: center;
+    font-family: RobotoLight;
+    transition: 1.2s ease-in-out;
+    margin-top: -6%;
+    font-size: 7vw;
+}
+
+.h31{
+    z-index: 1;
+    font-family: RobotoBold;
+    font-size: 100px;
+    text-transform: uppercase;
+    text-align: center;
+    position: absolute;
+    top: 10% ;
+    opacity: 0%;
+    filter: blur(7px);
+    transform: scale(1.5);
+    transition: 1.2s ease-in-out;
+    background-image: url(../assets/img/head1.png);
+    background-position: center;
+    background-size: cover;
+    width: 30%;
+    margin-left: 33.5%;
+}
+
+.about1{
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    justify-content: space-around;
+    width: 1152px;
+    height: 600px;
+    margin-left: 20%;
+    top: 32%;
+    font-size: 30px;
+    opacity: 0%;
+    filter: blur(5px);
+    transform: scale(1.5) ;
+}
+.h32{
+    font-size: 90px;
+    font-family: RobotoBold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0% ;
+    transition: 1.2s ease-in-out;
+    background-image: url(../assets/img/head2.png);
+    background-position: center;
+    background-size: cover;
+    width: 50%;
+    height: 200px;
+    padding-top: 50px;
+    margin-left: 26.5%;
+}
+.h33{
+    font-size: 90px;
+    font-family: RobotoBold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0% ;
+    transition: 1.2s ease-in-out;
+    background-image: url(../assets/img/head3.png);
+    background-position: center;
+    background-size: cover;
+    width: 50%;
+    height: 200px;
+    padding-top: 20px;
+    margin-left: 26.5%;
+}
+.about2{
+    user-select: none;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    left: 10%;
+    top: 1%;
+    height: 800px;
+    z-index: 6;
+    flex-direction: column;
+    filter: blur(7px);
+    opacity: 0%;
+    transform: scale(1.5);
+    transition:1.2s ease-in-out;
+}
+.about3{
+    user-select: none;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    left: 10%;
+    top: 2%;
+    height: 800px;
+    z-index: 0;
+    flex-direction: column;
+    filter: blur(5px);
+    opacity: 0%;
+    transform: scale(1.5);
+    transition: 1.0s ease-in-out;
+}
+.teamContainer{
+    display: flex;
+    margin-left: 0;
+    height: 400px;
+    margin-top: -10%;
+    text-align: center;
+    justify-content: space-around;
+}
+.teamItem{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    background-size: cover;
+    background-position: center;
+    padding-top: 11% ;
+    padding-bottom: 16%;
+    min-width: 372px;
+    height: 640px;
+}
+.teamItemS{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    background-size: cover;
+    background-position: center;
+    width: 24%;
+    height: 120%;
+    min-width: 432px;
+    min-height: 480px;
+    padding-top: 60px ;
+    padding-bottom: 120px;
+}
+.teamItem1{
+    background-image: url(../assets/img/phone21.png);
+}
+.teamItem112{
+    background-image: url(../assets/img/phone22.png);
+}
+.teamItem3{
+    background-image: url(../assets/img/phone23.png);
+}
+.teamItem4{
+    background-image: url(../assets/img/phone24.png);
+}
+.teamItem11{
+    background-image: url(../assets/img/phone33.png);
+}
+.teamItem22{
+    background-image: url(../assets/img/phone32.png);
+}
+.teamItem33{
+    background-image: url(../assets/img/phone33.png);
+}
+.about2 img{
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    filter: grayscale(0.75);
+    margin-left: 0%;
+    width: 50%;
+    transition: 0.5s;
+}
+.about3 img{
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    filter: grayscale(0.75);
+    margin-left: 0%;
+    width: 50%;
+    transition: 0.5s;
+}
+.about3 img:hover{
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.about2 img:hover{
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+@keyframes arrow1{
+    0%{
+        transform: translateY(0px)
+    }
+    100%{
+        transform: translateY(-15px)
+    }
+}
+@keyframes arrow2{
+    0%{
+        transform: translateY(0px)
+    }
+    100%{
+        transform: translateY(-30px)
+    }
+}
+.txt{
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    height: 500px;
+    background-image: url(../assets/img/phone1.png);
+    background-position: center;
+    background-size: cover;
+}
+.qr{
+    margin-top: 5%;
+    background-image: url(../assets/img/qr.png);
+    width: 420px;
+    height: 340px;
+    border-radius: 15px;;
+    background-position: center;
+    background-size: cover;
+}
+@media screen and (max-width: 1600px){   
+
+    .teamItemS{
+        width: 33%;
+        height: 160%;
+        padding-top: 60px ;
+        width: 288px;
+        height: 320px;
+        padding-bottom: 120px;
+    }
+    .about3{
+        width: 80%;
+        left: 10%;
+        top: 2%;
+        height: 80%;
+    }
+    .h31{
+        z-index: 1;
+        font-family: RobotoBold;
+        font-size: 80px;
+    }
+    .h32{
+        font-size: 70px;
+    }
+    .h33{
+        font-size: 70px;
+        width: 500px;
+        height: 140px;
+    }
+    .about2{
+        width: auto;
+        left: 10%;
+        top: 2%;
+        height: 80%;
+    }
+    .teamContainer{
+        margin-left: 0;
+        height: 50%;
+        margin-top: -4%;
+    }
+
+     .teamItem{
+        padding-top: 60px ;
+        padding-bottom: 120px;
+        min-width: 265px;
+        height: 415px;
+    }
+    .about2 img{
+        margin-left: 0%;
+        width: 50%;
+    }
+    .about1{
+        display: flex;
+        justify-content: space-around;
+        width: 60%;
+        height: 600px;
+        margin-left: 20%;
+        margin-top: 5%;
+        font-size: 19px;
+    }
+    .txt{
+        padding: 10px;
+        text-align: center;
+        width: 120%;
+        height: 55%;
+        background-image: url(../assets/img/phone1.png);
+        background-position: center;
+        background-size: cover;
+    }
+    .qr{
+        margin-top: 4%;
+        background-image: url(../assets/img/qr.png);
+        width: 360px;
+        height: 250px;
+        border-radius: 9px;
+        background-position: center;
+        background-size: cover;
+    }
+}
+@media screen and (max-width: 900px){   
+    nav{
+        
+        display: none;
+    }
+    .hflex{
+        position: absolute;
+        top: 15%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 50vh;
+        margin-left: 20%;
+    }
+    .about3, .about2, .about1{
+        filter: blur(0px);
+    }
+    .h31{
+        background-image: url(../assets/img/head1m.webp);
+    }
+    
+    .h32{
+        background-image: url(../assets/img/head2m.webp);
+    }
+    .h33{
+        background-image: url(../assets/img/head3m.webp);
+    }
+    .teamItem1{
+        background-image: url(../assets/img/phone21m.webp);
+    }
+    .teamItem2{
+        background-image: url(../assets/img/phone22m.webp);
+    }
+    .teamItem3{
+        background-image: url(../assets/img/phone23m.webp);
+    }
+    .teamItem4{
+        background-image: url(../assets/img/phone24m.webp);
+    }
+    .teamItem11{
+        background-image: url(../assets/img/phone33.png);
+    }
+    .teamItem22{
+        background-image: url(../assets/img/phone32m.webp);
+    }
+    .teamItem33{
+        background-image: url(../assets/img/phone33.png);
+    }
+    .txt{
+        background-image: url(../assets/img/phone1m.webp);
+    }
+    .qr{
+        background-image: url(../assets/img/qrm.webp);
+    }
+    .brush1{
+        transition: 2s ease-in-out;        
+        transform: scale(1.5);
+        filter: blur(0px);
+    }
+    .brush2{
+        transition: 2s ease-in-out;
+        background-image: url(../assets/img/brush2m.webp);
+        transform: scale(1.5);
+        filter: blur(0px);
+    }
+    .brush3{
+        transition: 2s ease-in-out;
+        background-image: url(../assets/img/brush3m.webp);
+        transform: scale(1.5);
+        filter: blur(0px);
+    }
+    .brush4{
+        transition: 2s ease-in-out;
+        background-image: url(../assets/img/brush4m.webp);
+        transform: scale(1.3);
+        filter: blur(0px);
+    }
+    .about2{
+        transition: 2s ease-in-out;
+        filter: blur(px);
+        width: 80%;
+        margin-left: 10%;
+        top: 2%;
+        height: 80%;
+    }
+
+    .teamItemS{
+        width: 33%;
+        height: 180%;
+        padding-top: 60px ;
+        padding-bottom: 120px;
+        min-width: 175px;
+        min-height: 195px;
+    }
+    .about3{
+        transition: 2s ease-in-out;
+        filter: blur(0px);
+        width: 80%;
+        left: 20%;
+        top: 2%;
+        height: 80%;
+    }
+    .h31{
+        transition: 2s ease-in-out;
+        filter: blur(0px);
+        z-index: 1;
+        font-family: RobotoBold;
+        font-size: 55px;
+        left: 10%;
+    }
+    .h32{
+        font-size: 55px;
+        width: 50%;
+        padding-top: 2%;
+        height: 100px;
+    }
+    .h33{
+        margin-left: 25%;
+        padding-top: 2%;
+        font-size: 44px;
+        width: 300px;
+        min-width: 300px;
+        height: 80px;
+    }
+    .about2{
+        transition: 2s ease-in-out;
+        width: 80%;
+        left: 10%;
+        top: 2%;
+        height: 80%;
+    }
+    .teamContainer{
+        margin-left: 0;
+        height: 50%;
+        margin-top: -4%;
+        font-size: 13px;
+    }
+    .teamItem{
+        width: 24%;
+        height: 175%;
+        min-width: 127px;
+        min-height: 121px;
+        padding-top: 60px ;
+        padding-bottom: 120px;
+    }
+
+    .about2 img{
+        margin-left: 25%;
+        width: 50%;
+    }
+    .about1{
+        transition: 2s ease-in-out;
+        width: 70%;
+        height: 600px;
+        margin-left: 24%;
+        margin-top: 5%;
+        font-size: 13.5px;
+    }
+    .txt{
+        padding: 3px;
+        text-align: center;
+        width: 140%;
+        height: 34%;
+    }
+    .qr{
+        margin-top: 2%;
+        width: 60%;
+        height: 30%;
+    }
+    *{
+        transition: all 1.5s ease-in-out;
+    }
+}
+@media screen and (max-width: 800px){   
+    .about1{
+        margin-top: 1.5%;
+    }
+
+    .teamItemS{
+        height: 165%;
+    }
+
+    .h31{
+        width: 35%;
+        z-index: 1;
+        font-size: 45px;
+        left: 10%;
+    }
+    .h32{
+        font-size: 45px;
+        width: 50%;
+        padding-top: 3%;
+        height: 100px;
+    }
+    
+
+    .teamContainer{
+        font-size: 11px;
+    }
+    .teamItem{
+        height: 170%;
+    }
+
+}
+@media screen and (max-width: 700px){   
+    h1{
+        transition: 2s ease-in-out;
+    }
+    .qr{
+        margin-top: 5%;
+        width: 60%;
+        height: 25%;
+    }
+    .about1{
+        font-size: 11.5px;
+        margin-top: 0%;
+    }
+
+
+    .teamItemS{
+        height: 165%;
+    }
+
+    .h31{
+        width: 35%;
+        z-index: 1;
+        font-family: RobotoBold;
+        font-size: 40px;
+        left: 10%;
+    }
+    .h32{
+        font-size: 40px;
+        width: 50%;
+        padding-top: 5%;
+        height: 100px;
+    }
+    .h33{
+        margin-left: 25%;
+        padding-top: 2%;
+        font-size: 40px;
+        height: 32%;
+    }
+
+    .teamContainer{
+        font-size: 11px;
+    }
+    .teamItem{
+        padding-top: 30px;
+        padding-bottom: 0px;
+        height: 170%;
+    }
+    .desc{
+        height: 170%;
+    }
+    
+
+}
+@media screen and (max-width: 400px){ 
+    .rotatemsg{
+        display: block;
+    }
+}
+
+
